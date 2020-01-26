@@ -12,16 +12,17 @@ class RepoListItem extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isStarred: this.props.repository.viewerHasStarred,
-
+      isStarred: (this.props.repository)&& this.props.repository.viewerHasStarred,
+      viewdRepo:0
     }
 
   }
 
-
+countViewdRepo=()=>{
+  this.setState({viewdRepo:this.state.viewdRepo+1})
+}
   render() {
-    const { id, viewerHasStarred } = this.props.repository;
-   
+    const {repository } = this.props;
 
     const addStarLoading = <div style={styles.gazers}>Sending the star...</div>;
     const removeStarLoading = <div>Removing the star...</div>;
@@ -29,7 +30,7 @@ class RepoListItem extends Component {
 
     const mutation = starred => {
 
-        return <Mutation mutation={(!starred)?STAR_REPOSITORY:UNSTAR_REPOSITORY} variables={{ id }}>
+        return <Mutation mutation={(!starred)?STAR_REPOSITORY:UNSTAR_REPOSITORY} variables={repository }>
           {(clickStar, { data, loading, error }) => {
             if (loading) return <div>{(!starred)?addStarLoading:removeStarLoading}</div>
             if (error) return errorDiv(error);
@@ -51,14 +52,16 @@ class RepoListItem extends Component {
     }
 
     return (
-      <li style={styles.repoListItem}>
+      <>
+     {(repository) &&<li style={styles.repoListItem}>
         <h2 >Repo Name:<li style={styles.itemHeader}>{this.props.repository.name}</li></h2>
         <h5 style={styles.url}><a href={this.props.repository.url}
           style={styles.hover}>
           {this.props.repository.url}
         </a></h5>
-        {mutation(viewerHasStarred)}
-      </li>
+        {mutation(repository.viewerHasStarred)}
+      </li>}
+      </>
     )
   }
 }

@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly when there is props 1`] = `
+<div
+  className="repo-list"
+  data-radium={true}
+>
+  <div
+    data-radium={true}
+    style={
+      Object {
+        "marginTop": 10,
+        "textAlign": "center",
+      }
+    }
+  >
+    <img
+      alt="loader"
+      src="loading.gif"
+    />
+  </div>
+</div>
+`;

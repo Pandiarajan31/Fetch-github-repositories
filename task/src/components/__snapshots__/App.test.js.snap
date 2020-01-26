@@ -1,0 +1,105 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot testing 1`] = `
+<div
+  data-radium={true}
+>
+  <div
+    className="App"
+    data-radium={true}
+    style={
+      Object {
+        "height": "110%",
+      }
+    }
+  >
+    <header
+      className="App-header"
+      data-radium={true}
+      style={
+        Object {
+          "color": "#ab20c8",
+          "fontSize": "2em",
+          "fontWeight": "bolder",
+          "padding": "1em 0",
+          "textAlign": "center",
+        }
+      }
+    >
+      <h1>
+        Fetch GitHub Details
+      </h1>
+    </header>
+    <div
+      data-radium={true}
+    >
+      <div
+        data-radium={true}
+        style={
+          Object {
+            "textAlign": "center",
+          }
+        }
+      >
+        <input
+          className="rmq-2359131e rmq-2437c991 rmq-e28b15b2 search"
+          data-radium={true}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          placeholder="Search GitHub by Username"
+          required={true}
+          style={
+            Object {
+              "border": "2px solid #ABABAB",
+              "color": " #4da6ff",
+              "textAlign": "center",
+              "width": "400px",
+            }
+          }
+          type="text"
+        />
+      </div>
+      <div>
+        <div
+          className="repo-list"
+          data-radium={true}
+        >
+          <div
+            data-radium={true}
+            style={
+              Object {
+                "marginTop": 10,
+                "textAlign": "center",
+              }
+            }
+          >
+            <img
+              alt="loader"
+              src="loading.gif"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      data-radium={true}
+      style={
+        Object {
+          "padding": "20px 0",
+        }
+      }
+    />
+  </div>
+  <style
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "@media (max-width: 415px){ .rmq-2359131e{width: 90% !important;
+font-size: .8em !important;}}
+@media (max-width: 315px){ .rmq-2437c991{font-size: .6em !important;}}
+@media (max-width: 250px){ .rmq-e28b15b2{font-size: .5em !important;}}",
+      }
+    }
+  />
+</div>
+`;

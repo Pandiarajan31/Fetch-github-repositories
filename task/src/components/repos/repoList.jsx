@@ -26,12 +26,12 @@ class RepoList extends React.Component {
               const repos = data.repositoryOwner.repositories.nodes;
               const renderingRepos = repos.map(repo =>
                 <RepoListItem repository={repo}
-                  key={repo.id} />
+                  key={repo.id} changeToggle={this.props.changeToggle} toggleState={this.props.toggleState} />
               );
               const starredRepos = repos.map(repo =>
                ( (toggleState === "starred")?repo.viewerHasStarred:repo.viewerHasStarred === false) &&
                 <RepoListItem repository={repo}
-                  key={repo.id} />
+                  key={repo.id} changeToggle={this.props.changeToggle} toggleState={this.props.toggleState} />
               );
               const count = renderingRepos.length;
               const countStarred = starredRepos.length;
@@ -54,7 +54,7 @@ class RepoList extends React.Component {
                             <input style={styles.setSpace} type="radio" name="repo" value="starred" checked={toggleState === "starred"} onChange={(e)=>changeToggle(e)} />
                             <br style={styles.setLine}/>
                             <label style={styles.setSpace}>Show Unstarred Repo</label>
-                            <input style={styles.setSpace} type="radio" name="repo" value="unstarred" onChange={(e)=>changeToggle(e)}  />
+                            <input style={styles.setSpace} type="radio" name="repo" value="unstarred"  checked={toggleState === "unstarred"} onChange={(e)=>changeToggle(e)}  />
                           <h1 style={styles.filteredList}>Total Repo List</h1>
                         </>
                       }
