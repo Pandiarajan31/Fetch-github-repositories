@@ -160,14 +160,11 @@ export const styles = {
       fontSize: '.5em'
     },
     '@media (max-width: 475px)': {
-      fontSize: '.5em',
+      fontSize: '.4em',
     },
-    '@media (max-width: 375px)': {
-      fontSize: '.5em',
+    '@media (max-width: 380px)': {
+      fontSize: '5px',
     },
-    '@media (max-width: 300px)': {
-      fontSize: '.3em',
-    }
   },
   loading: {
     textAlign: 'center',
