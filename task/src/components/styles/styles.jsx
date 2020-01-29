@@ -155,6 +155,10 @@ export const styles = {
     fontSize:35,
     cursor:"pointer"
   },
+  centerButton:{
+    margin: "auto",
+    display: "block"
+  },
   url: {
     '@media (max-width: 690px)': {
       fontSize: '.5em'

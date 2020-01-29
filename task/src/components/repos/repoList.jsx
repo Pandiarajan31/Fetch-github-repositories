@@ -8,7 +8,7 @@ import { styles } from '../styles/styles';
 
 class RepoList extends React.Component {
   render() {
-    const { inputSearch,toggleState,changeToggle } = this.props;
+    const { inputSearch,toggleState,changeToggle,repoSearch } = this.props;
     const errorDiv = err => <div className='error'>{err.message}</div>
 
     const query = (login = '') => (
@@ -24,15 +24,26 @@ class RepoList extends React.Component {
               data.repositoryOwner.repositories
             ) {
               const repos = data.repositoryOwner.repositories.nodes;
-              const renderingRepos = repos.map(repo =>
-                <RepoListItem repository={repo}
+
+              const renderingRepos =(repoSearch === "")? repos.map(repo =>
+                <RepoListItem repository={repo} repoSearch={repoSearch}
                   key={repo.id} changeToggle={this.props.changeToggle} toggleState={this.props.toggleState} />
-              );
-              const starredRepos = repos.map(repo =>
+              ):  repos.map(repo =>
+              (repo.name.toLowerCase().includes(repoSearch.toLowerCase()))&&<RepoListItem repository={repo} repoSearch={repoSearch}
+              key={repo.id} changeToggle={this.props.changeToggle} toggleState={this.props.toggleState} />
+              )
+              ;
+              const starredRepos = (repoSearch === "")?repos.map(repo =>
                ( (toggleState === "starred")?repo.viewerHasStarred:repo.viewerHasStarred === false) &&
-                <RepoListItem repository={repo}
+                <RepoListItem repository={repo} repoSearch={repoSearch}
                   key={repo.id} changeToggle={this.props.changeToggle} toggleState={this.props.toggleState} />
-              );
+              ):
+              repos.map(repo =>
+                ( (toggleState === "starred")?repo.viewerHasStarred:repo.viewerHasStarred === false) &&(repo.name.toLowerCase().includes(repoSearch.toLowerCase()))&&
+                 <RepoListItem repository={repo} repoSearch={repoSearch}
+                   key={repo.id} changeToggle={this.props.changeToggle} toggleState={this.props.toggleState} />
+               )
+              ;
               const count = renderingRepos.length;
               const countStarred = starredRepos.length;
 
